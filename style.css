@@ -1,0 +1,661 @@
+/* 1. Reset and Fonts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #11111a; /* Very dark blue background */
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 2. Typography */
+.eyebrow {
+    color: #f5a623;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.highlight {
+    color: #f5a623; /* Bright Orange-Yellow accent */
+}
+
+p {
+    color: #a0a0b0;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+/* 3. Social Icons and Buttons */
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #f5a623;
+    transform: translateY(-5px); /* Lift animation on hover */
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: #f5a623;
+    color: #11111a;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    transform: scale(1.05); /* Grow animation on hover */
+}
+
+/* 4. Layouts (Hero and Grid) */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.projects {
+    padding: 5rem 0;
+    background-color: #181824; /* Slightly lighter background */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    border-bottom: 3px solid #f5a623;
+    display: inline-block;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: #222232;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #333344;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.card-icon {
+    font-size: 2.5rem;
+    color: #f5a623;
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Lift animation on hover */
+    border-color: #f5a623;
+}
+/* Keeps the text white and removes the default link underline */
+.card-link {
+    text-decoration: none;
+    color: inherit; 
+    display: block;
+}
+
+/* "View Repository" link aesthetics */
+.view-repo {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #f5a623;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .view-repo {
+    transform: translateX(5px); /* Arrow nudges right on hover */
+}
+
+/* 5. Trigger Animations on Load */
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-left {
+    animation: slideLeft 1s ease-out forwards;
+}
+
+.reveal-up {
+    animation: slideUp 1s ease-out forwards;
+}
+/* About Section Layout */
+.about-section {
+    padding: 5rem 0;
+    background-color: #11111a;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+}
+
+.about-intro {
+    max-width: 600px;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    border: 2px solid #f5a623;
+    color: #f5a623;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: #f5a623;
+    color: #11111a;
+}
+
+/* Modal Pop-up Box */
+.story-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Blackout background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.story-box.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.story-content {
+    background-color: #1c1c28;
+    padding: 3rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    border: 1px solid #333344;
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+}
+
+.story-box.visible .story-content {
+    transform: scale(1); /* Pops up into view */
+}
+
+.close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: #a0a0b0;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #f5a623;
+}
+
+.story-content h3 {
+    color: #f5a623;
+    margin-bottom: 1rem;
+}
+
+.story-content hr {
+    border: 1px solid #333344;
+    margin-bottom: 1.5rem;
+}
+
+.story-content p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+}
+
+.hidden {
+    display: none !important; /* Forces hidden if js fails */
+}
+/* --- Profile Picture Styling --- */
+.profile-pic {
+    width: 100%;
+    max-width: 380px; /* Limits how big it can get */
+    height: auto;
+    border-radius: 20px; /* Gives nice curved edges */
+    border: 3px solid #f5a623; /* Matching orange-yellow border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Soft shadow beneath it */
+    transition: transform 0.4s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.03); /* Subtle zoom when someone hovers on your photo */
+}
+
+/* --- Project Card Image Styling --- */
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Crops the image perfectly without stretching it */
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+body {
+  background-image: url("images/wp7440240.jpg"); /* Replace with your image's file path */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 0; /* Remove browser default margins */
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Automatically places 3 columns on desktop, 1 on mobile */
+    gap: 2rem;
+    width: 100%;
+}
+/* --- Experience Timeline --- */
+.experience {
+    padding: 5rem 0;
+    background-color: #11111a;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    border-left: 3px solid #333344; /* The vertical line of the timeline */
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2.45rem; /* Centers the dot exactly on the vertical line */
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background-color: #f5a623;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(245, 166, 35, 0.6);
+}
+
+.timeline-content {
+    background-color: #1c1c28;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #333344;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateX(10px); /* Nudges the card slightly to the right on hover */
+    border-color: #f5a623;
+}
+
+.timeline-date {
+    display: inline-block;
+    background-color: #f5a623;
+    color: #11111a;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.timeline-content h4 {
+    font-size: 1.1rem;
+    color: #f5a623;
+    margin-bottom: 1rem;
+}
+
+.timeline-content ul {
+    list-style-type: none; /* Removes default browser bullets */
+}
+
+.timeline-content ul li {
+    color: #a0a0b0;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.timeline-content ul li::before {
+    content: '→'; /* Custom arrow bullet point */
+    position: absolute;
+    left: 0;
+    color: #f5a623;
+}
+/* --- Professional Skills Styling --- */
+.skills-section {
+    padding: 5rem 0;
+    background-color: #11111a;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.skills-category {
+    background-color: #1c1c28;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #333344;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.skills-category:hover {
+    transform: translateY(-5px);
+    border-color: #f5a623; /* Highlights category box on hover */
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.category-header i {
+    font-size: 1.5rem;
+    color: #f5a623;
+}
+
+.category-header h3 {
+    font-size: 1.25rem;
+    color: #ffffff;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+/* Individual Skill Badges */
+.skill-tag {
+    background-color: #11111a;
+    color: #a0a0b0;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #444455;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background-color: #f5a623;
+    color: #11111a;
+    border-color: #f5a623;
+    transform: scale(1.05); /* Gentle zoom of the tag when hovered */
+}
+/* Styling the secondary subtitle underneath the first grid */
+.sub-title {
+    margin-top: 4rem; /* Adds nice spacing between the first and second skill blocks */
+}
+/* --- Contact Section --- */
+.contact-section {
+    padding: 5rem 0;
+    background-color: #181824;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 4rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: #f5a623;
+    width: 25px;
+    text-align: center;
+}
+
+.info-item a {
+    color: #a0a0b0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.info-item a:hover {
+    color: #f5a623;
+}
+
+/* Call to action button layout spacing */
+.cta-block {
+    margin-top: 3rem;
+}
+
+.btn-download {
+    background-color: transparent;
+    border: 2px solid #f5a623;
+    color: #f5a623;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    font-weight: 700;
+}
+
+.btn-download:hover {
+    background-color: #f5a623;
+    color: #11111a;
+}
+
+/* --- Contact Form --- */
+.contact-form {
+    background-color: #1c1c28;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #333344;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: #11111a;
+    border: 1px solid #444455;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #f5a623;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: #11111a;
+    padding: 2rem 0;
+    border-top: 1px solid #222232;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-flex p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-socials a {
+    color: #a0a0b0;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #f5a623;
+}
+/* --- Ultra High Visibility Hero Overrides --- */
+
+/* 1. Bright Electric Cyan for your Name and icons */
+/*.neon-highlight {
+    color: #a8c3c4 !important; 
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.4); /* Subtle glow to make it pop 
+}
+*/
+/* 2. Bold gold-yellow for the top engineering tag */
+.high-visibility-eyebrow {
+    color: #ffd700 !important; 
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+/* 3. Pure crisp white for standard text */
+.high-visibility-title {
+    color: #ffffff !important;
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.high-visibility-text {
+    color: #e0e0e0 !important; /* Slightly off-white for reading comfort */
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+/* 4. Let's brighten the icons and buttons too */
+.social-links a {
+    color: #ffffff !important;
+    font-size: 1.8rem;
+}
+
+.social-links a:hover {
+    color: #f4e808 !important;
+}
+
+.btn {
+    background-color: #00f2fe !important;
+    color: #0b0c10 !important;
+    font-weight: 700;
+}
+#particles-js {
+    position: relative;
+    background-color: #0b0c10; /* Dark space background */
+    overflow: hidden;
+}
+
+/* Ensure the text container stays on top of the particles canvas */
+#particles-js .container {
+    position: relative;
+    z-index: 10;
+}
+
+canvas.particles-js-canvas-el {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Keeps them behind the text container */
+}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manideep Emmadi - Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero">
+    <div class="container reveal-left">
+        <span class="eyebrow high-visibility-eyebrow">Electronics & Communication Engineering</span>
+        
+        <h1 class="high-visibility-title">Hi, I'm <span class="neon-highlight">Mani</span></h1>
+        
+        <p class="high-visibility-text">Aspiring VLSI & Embedded Systems Engineer based in Hyderabad.</p>
+        
+        <div class="social-links">
+            <a href="https://github.com/maniemmadi" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mani-emmadi-068b69276/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:emmadimani786@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        </div>
+        
+        <div class="cta-buttons">
+            <a href="#projects" class="btn">View My Work</a>
+            
+        </div>
+    </div>
+    </header>
+<section id="about" class="about-section">
+        <div class="container flex-row reveal-up">
+            
+            <div class="about-intro">
+                <span class="eyebrow">The Engineer behind the code</span>
+                <h2>Let me tell you <span class="highlight">My Story</span></h2>
+                <p>I am a B.Tech ECE student at Methodist College based in Hyderabad, deeply passionate about mapping complex algorithms into efficient silicon hardware architectures.</p>
+                <a href="#full-story" class="btn-outline" onclick="toggleStory()">Read Full Story <i class="fas fa-book-open"></i></a>
+            </div>
+
+            <div id="full-story" class="story-box hidden">
+                <div class="story-content">
+                    <span class="close-btn" onclick="toggleStory()">&times;</span>
+                    <h3>The Journey So Far</h3>
+                    <hr>
+                    <p><strong>The Spark:</strong> My journey into engineering started with a simple curiosity about how microchips are able to compute billions of operations a second. This led me to pursue my degree in Electronics & Communication.</p>
+                    <p><strong>The Grind:</strong> I specialize in digital architectures. Whether it's running timing simulations for a 16-bit ALU in Xilinx Vivado or designing Finite State Machines in Verilog, I enjoy the precision of hardware design. Interning at DRDO (RCI) gave me a front-row seat to the importance of verification and testing in real-world systems.</p>
+                    <p><strong>The Mission:</strong> Currently, I am expanding my knowledge into physical design constraints and automated synthesis workflows. I love sharing my projects on GitHub and building open-source systems.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section id="projects" class="projects">
+        <div class="container reveal-up">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="grid">
+                <a href="https://github.com/maniemmadi/Multi-Baud-Rate-UART-Transmitter-FSM-Based-" target="_blank" class="card-link">
+                    <div class="card">
+                        <i class="fas fa-satellite-dish card-icon"></i>
+                        <h3>Multi-Baud UART Transmitter</h3>
+                        <p>Designed a Verilog-based FSM UART transmitter supporting dynamic baud rate generation. Validated state transitions and serialized data streams using a self-checking testbench.</p>
+                        <span class="view-repo">View Repository <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="https://github.com/maniemmadi/16-bit-ALU-Low-Power-Design." target="_blank" class="card-link">
+                    <div class="card">
+                        <i class="fas fa-microchip card-icon"></i>
+                        <h3>16-bit ALU Design</h3>
+                        <p>Designed a synthesizable 16-bit ALU using Verilog, featuring Power-Aware Design through Clock Gating and Dynamic Frequency Scaling (DFS)[cite: 36, 43].</p>
+                        <span class="view-repo">View Repository <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/maniemmadi/Traffic_controller_fsm" target="_blank" class="card-link">
+                    <div class="card">
+                        <i class="fas fa-traffic-light card-icon"></i>
+                        <h3>Traffic Light FSM</h3>
+                        <p>Implemented a 6-state Moore FSM in Verilog for a synchronized T-intersection validated in Xilinx Vivado[cite: 42, 43, 44].</p>
+                        <span class="view-repo">View Repository <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="experience" class="experience">
+        <div class="container reveal-up">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025</span>
+                        <h3>Electronics / VLSI Intern</h3>
+                        <h4>DRDO - Research Centre Imarat (RCI)</h4>
+                        <ul>
+                            <li>Gained exposure to digital design concepts and hardware verification techniques.</li>
+                            <li>Worked with Verilog testbench structures and simulation environments.</li>
+                            <li>Observed semiconductor design workflows used in defense electronics systems.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024</span>
+                        <h3>Internship Trainee</h3>
+                        <h4>Techieyaan</h4>
+                        <ul>
+                            <li>Completed internship training focused on electronics and embedded systems fundamentals.</li>
+                            <li>Worked on technical assignments related to IoT and hardware interfacing.</li>
+                            <li>Gained hands-on exposure to Arduino-based systems and basic circuit design.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleStory() {
+            var modal = document.getElementById("full-story");
+            
+            // Toggle visibility classes
+            if (modal.classList.contains("hidden")) {
+                modal.classList.remove("hidden");
+                // Timeout allows the fade-in animation to render
+                setTimeout(() => modal.classList.add("visible"), 10); 
+            } else {
+                modal.classList.remove("visible");
+                setTimeout(() => modal.classList.add("hidden"), 400); // Wait for fade-out
+            }
+        }
+    </script>
+    <section id="skills" class="skills-section">
+        <div class="container flex-column reveal-up">
+            <h2 class="section-title">Technical Skills</h2>
+
+            <div class="skills-grid">
+                
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Verilog</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Hardware / Embedded Platforms</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">Sensor Interfacing</span>
+                        <span class="skill-tag">Sensor-based Systems</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>EDA & Development Tools</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Xilinx Vivado</span>
+                        <span class="skill-tag">Arduino IDE</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Custom Compiler</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Simulation & Analysis</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Circuit Simulation</span>
+                        <span class="skill-tag">Power Analysis</span>
+                        <span class="skill-tag">Transient Analysis</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Libraries & Domains</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">VLSI Design</span>
+                        <span class="skill-tag">Digital Electronics</span>
+                        <span class="skill-tag">Embedded Systems</span>
+                        <span class="skill-tag">IoT Systems</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <h2 class="section-title sub-title">VLSI & Hardware Skills</h2>
+            
+            <div class="skills-grid">
+                
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>HDL & Digital Design</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Verilog</span>
+                        <span class="skill-tag">Finite State Machines (FSM)</span>
+                        <span class="skill-tag">ALU Design</span>
+                        <span class="skill-tag">Digital Logic</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-wave-square"></i>
+                        <h3>Analysis & EDA</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Xilinx Vivado</span>
+                        <span class="skill-tag">Power Analysis</span>
+                        <span class="skill-tag">Transient Analysis</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <section id="contact" class="contact-section">
+        <div class="container reveal-up">
+            <h2 class="section-title">Get In Touch</h2>
+
+            <div class="contact-grid">
+                
+                <div class="contact-info">
+                    <h3>Let's build something together!</h3>
+                    <p>Whether you have a query about VLSI design, an open internship, or just want to connect, my inbox is always open.</p>
+
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><a href="mailto:emmadimani786@gmail.com">emmadimani786@gmail.com</a></span>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span><a href="tel:+919704160293">+91 9704160293</a></span>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Hyderabad, India</span>
+                    </div>
+
+                    <div class="cta-block">
+                        <a href="images/RESUME.pdf" target="_blank" class="btn btn-download">
+                            Download Resume <i class="fas fa-file-download"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="contact-form">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email Address" required>
+                        <textarea name="message" rows="5" placeholder="Your message about projects, hiring, or collaboration..." required></textarea>
+                        <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-flex">
+            <p>&copy; 2026 Manideep Emmadi. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/maniemmadi" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mani-emmadi-068b69276/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:emmadimani786@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00f2fe" }, /* Electric cyan dots */
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00f2fe", /* Connecting lines */
+                    "opacity": 0.3,
+                    "width": 1
+                },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+            },
+            "retina_detect": true
+        });
+
+    </script>
+   </body>
+</body>
+</html>
