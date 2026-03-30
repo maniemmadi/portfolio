@@ -300,6 +300,31 @@
             </div>
         </div>
     </footer>
+    <footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #eee;">
+    <p style="color: #888; font-size: 0.9rem;">
+        Total Portfolio Views: <span id="count" style="font-weight: bold; color: #333;">499</span>
+    </p>
+</footer><script>
+  async function loadViews() {
+    const startValue = 499;
+    // Replace 'mani-portfolio-2026' with any unique name you like
+    const namespace = "mani-portfolio-2026"; 
+    const key = "homepage";
+
+    try {
+      // This URL increments the count by 1 every time the page loads
+      const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`);
+      const data = await response.json();
+      
+      // Update the HTML with (499 + new hits)
+      document.getElementById('count').innerText = startValue + data.count;
+    } catch (error) {
+      console.error("View counter failed:", error);
+    }
+  }
+
+  loadViews();
+</script>
     <div style="text-align: center; padding: 20px; font-family: Arial, sans-serif; color: #666;">
     <p>Page Views: <span id="view-count">499</span></p>
 </div>
