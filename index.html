@@ -300,6 +300,32 @@
             </div>
         </div>
     </footer>
+    <div style="text-align: center; padding: 20px; font-family: Arial, sans-serif; color: #666;">
+    <p>Page Views: <span id="view-count">499</span></p>
+</div>
+    <script>
+    async function updateCounter() {
+        const startValue = 499;
+        // The 'key' can be any unique string for your project
+        const namespace = "maniemmadi-portfolio-v1"; 
+        const key = "visits";
+
+        try {
+            // This API increments the count by 1 every time it is called
+            const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+            const data = await response.json();
+            
+            // Display the sum of your starting value + the API count
+            document.getElementById('view-count').innerText = startValue + data.value;
+        } catch (error) {
+            console.log("Counter error:", error);
+            // Fallback to starting value if API fails
+            document.getElementById('view-count').innerText = startValue;
+        }
+    }
+
+    updateCounter();
+</script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 
